@@ -1,5 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
-
 function Tool()
 local Tool = Instance.new("Tool")
 Tool.RequiresHandle = false
@@ -8,7 +6,9 @@ Tool.TextureId = "rbxassetid://2048633342"
 Tool.Name = "Multi"
 local Plr = game.Players.LocalPlayer.Character
 local Plr2 = game.Players.LocalPlayer
-	
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
+
 function Punch()
 	Plr.Humanoid:UnequipTools()
 	wait(0.01)

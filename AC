@@ -1,34 +1,34 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
 
-function Tool1()
-local Tool1 = Instance.new("Tool")
-Tool1.RequiresHandle = false
-Tool1.ToolTip = "MultiDash tool"
-Tool1.TextureId = "rbxassetid://2048633342"
-Tool1.Name = "Multi"
-local Plr2 = game.Players.LocalPlayer.Character
-local Plr = game.Players.LocalPlayer
+function Tool()
+local Tool = Instance.new("Tool")
+Tool.RequiresHandle = false
+Tool.ToolTip = "MultiDash tool"
+Tool.TextureId = "rbxassetid://2048633342"
+Tool.Name = "Multi"
+local Plr = game.Players.LocalPlayer.Character
+local Plr2 = game.Players.LocalPlayer
 	
-function Punch1()
-	Plr2.Humanoid:UnequipTools()
+function Punch()
+	Plr.Humanoid:UnequipTools()
 	wait(0.01)
-	Plr2.Humanoid:EquipTool(Plr.Backpack.Combat)
+	Plr.Humanoid:EquipTool(Plr2.Backpack.Combat)
 	wait(0.01)
-	Plr2.Combat:Activate()
-	TP1()
+	Plr.Combat:Activate()
+	TP()
 	wait(1.3)
-	Plr2.Combat:Deactivate()
+	Plr.Combat:Deactivate()
 	wait(0.1)
-	Plr2.Humanoid:EquipTool(Plr.Backpack.Multi)
+	Plr.Humanoid:EquipTool(Plr2.Backpack.Multi)
 end
 
-function TP1()
+function TP()
 	Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(0, 10), 0, 0) wait(0.1)
 	Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-8, 0), 0, 0) wait(0.1)
 	Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, math.random(0, 15), math.random(0, 12)) wait(0.1)
 	Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, math.random(0, 11)) wait(0.1)
 	Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -17) wait(1)
-        Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -20)
+    Plr.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -20)
 end
 
 Tool.Activated:Connect(function()
@@ -41,7 +41,7 @@ Tool.Activated:Connect(function()
 			local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 			ld:Play()
 			ld:AdjustSpeed(0.45)
-			Punch1()
+			Punch()
     	local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
 			while true do wait()
 				for i,v in next, Hum:GetPlayingAnimationTracks() do
@@ -64,13 +64,13 @@ Tool.Activated:Connect(function()
 		    end
 		end
 end)
-Tool1.Parent = game:GetService("Players").LocalPlayer.Backpack
+Tool.Parent = game:GetService("Players").LocalPlayer.Backpack
 end
 game:GetService('Players').LocalPlayer.Character:WaitForChild('FULLY_LOADED_CHAR');
 wait(1);
-Tool1();
+Tool();
 game:GetService('Players').LocalPlayer.CharacterAdded:Connect(function(v)
     v:WaitForChild('FULLY_LOADED_CHAR');
     wait(1);
-    Tool1();
+    Tool();
 end)

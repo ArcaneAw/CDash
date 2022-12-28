@@ -22,6 +22,20 @@ function Punch()
 	Plr.Humanoid:EquipTool(Plr2.Backpack.Dash)
 end
 
+function blur()
+    TweenService = game:GetService("TweenService")
+    TweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.5), {FieldOfView = 85}):Play()
+    TweenService:Create(game:GetService("Lighting").ColorCorrection, TweenInfo.new(0.8), {Saturation = -1}):Play()
+    local blur = Instance.new("BlurEffect", game:GetService("Lighting"))
+    TweenService:Create(blur, TweenInfo.new(0.8), {Size = 10}):Play()
+    wait(0.45)
+    TweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.5), {FieldOfView = 70}):Play()
+    game:GetService("Lighting").ColorCorrection.TintColor = Color3.fromRGB(250, 250, 250)
+    TweenService:Create(blur, TweenInfo.new(0.8), {Size = 0}):Play()
+    wait(0.45)
+    TweenService:Create(game:GetService("Lighting").ColorCorrection, TweenInfo.new(0.8), {Saturation = 0}):Play()
+end
+
 Tool.Activated:Connect(function()
     local Character = game:GetService("Players").LocalPlayer.Character
     local Humanoid = Character:FindFirstChildOfClass("Humanoid")
@@ -33,6 +47,7 @@ Tool.Activated:Connect(function()
 			ld:Play()
 			ld:AdjustSpeed(0.45)
 			Punch()
+			blur()
     	local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
 			while true do wait()
 				for i,v in next, Hum:GetPlayingAnimationTracks() do
@@ -47,8 +62,9 @@ Tool.Activated:Connect(function()
 			                    ld:Play()
 			                    ld:AdjustSpeed(0.45)
 							    ld.TimePosition = 3;
-								wait(0.1)
-								play(558640653, true, true)
+							    play(558640653, true, true)
+								wait(2)
+								--play(6883696417, true, true)
 						end
 					end
 				end

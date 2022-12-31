@@ -63,8 +63,6 @@ Tool.Activated:Connect(function()
 			                    ld:AdjustSpeed(0.45)
 							    ld.TimePosition = 3;
 							    play(558640653, true, true)
-								wait(2)
-							    play(6883696417, true, true)
 						end
 					end
 				end
